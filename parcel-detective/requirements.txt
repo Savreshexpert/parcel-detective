@@ -1,0 +1,2 @@
+# Local demo: Python standard library only. Nothing to install.
+# AWS mode: python -m pip install -r requirements-aws.txt
