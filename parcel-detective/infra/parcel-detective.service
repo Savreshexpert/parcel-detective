@@ -1,0 +1,17 @@
+[Unit]
+Description=Parcel Detective - dashboard and investigation agent
+After=network-online.target parcel-decider.service
+Wants=network-online.target
+
+[Service]
+User=ec2-user
+WorkingDirectory=/opt/parcel-detective
+EnvironmentFile=/opt/parcel-detective/.env
+ExecStart=/opt/parcel-detective/.venv/bin/python -m parcel_detective.server --host 127.0.0.1 --port 8080
+Restart=on-failure
+RestartSec=10
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

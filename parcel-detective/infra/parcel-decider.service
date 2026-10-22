@@ -1,0 +1,18 @@
+[Unit]
+Description=Parcel Detective - Strands Decider 2B
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=ec2-user
+WorkingDirectory=/opt/parcel-detective
+Environment=OMP_NUM_THREADS=4
+Environment=TOKENIZERS_PARALLELISM=false
+ExecStart=/opt/parcel-detective/.venv/bin/strands-decider serve StrandsAgents/strands-decider-2B-qwen3.5-v1-2610 --device cpu --port 8000 --strict-window
+Restart=on-failure
+RestartSec=15
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

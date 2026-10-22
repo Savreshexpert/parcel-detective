@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Investigate missing parcels with a traceable evidence timeline. A fictional warehouse demonstration."
+    />
+    <title>Parcel Detective · Investigation desk</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <a href="/" class="brand" aria-label="Parcel Detective home"
+        ><span class="brand-icon">P<span>·</span></span
+        ><span>Parcel<br /><strong>Detective</strong></span></a
+      >
+      <div class="workspace">
+        <span class="workspace-icon">NM</span
+        ><span>Navi Mumbai hub<small>Fictional warehouse</small></span
+        ><span class="chevron">⌄</span>
+      </div>
+      <p class="nav-label">WORKSPACE</p>
+      <nav aria-label="Main navigation">
+        <button class="nav-item active" data-view="desk">
+          <span>⌕</span> Investigation desk <b>20</b>
+        </button>
+        <button class="nav-item" data-view="evaluation">
+          <span>▥</span> Evaluation lab
+        </button>
+        <button class="nav-item" data-view="guide">
+          <span>◇</span> How it works
+        </button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="small-orbit">◎</div>
+        <strong>Every clue has a source.</strong>
+        <p>Follow the records.<br />Keep the uncertainty.</p>
+        <div class="sidebar-divider"></div>
+        <span class="avatar">SY</span
+        ><span class="builder-name"
+          >Sarvesh Yadav<small>Hackathon workspace</small></span
+        >
+      </div>
+    </aside>
+    <main>
+      <header class="topbar">
+        <div>
+          <span class="breadcrumb">Workspace</span><span class="slash">/</span
+          ><span id="page-crumb">Investigation desk</span>
+        </div>
+        <div class="topbar-right">
+          <span class="mode-badge" id="mode">Connecting</span
+          ><span class="dataset-badge">Fictional data</span>
+        </div>
+      </header>
+      <div id="notice" class="notice" role="status" hidden></div>
+      <section id="desk" class="view">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">FOLLOW THE EVIDENCE</p>
+            <h1>Every parcel has a story.</h1>
+            <p class="subtitle">
+              Connect the records. Find the next place to look.
+            </p>
+          </div>
+          <span class="date-chip">DEMO DAY <b>21 OCT 2026</b></span>
+        </div>
+        <div class="stat-grid">
+          <div class="stat">
+            <span class="stat-label">DEMO CASES</span
+            ><strong>20<span class="stat-symbol">▧</span></strong
+            ><small>Three investigation outcomes</small>
+          </div>
+          <div class="stat">
+            <span class="stat-label">EVIDENCE SOURCES</span
+            ><strong>03<span class="stat-symbol">⌘</span></strong
+            ><small>Scans · dispatch · handover</small>
+          </div>
+          <div class="stat">
+            <span class="stat-label">LAST RESPONSE</span
+            ><strong id="response-stat">—</strong
+            ><small>Measured end to end on this server</small>
+          </div>
+          <div class="stat stat-accent">
+            <span class="stat-label">INVESTIGATION MODE</span
+            ><strong id="mode-stat">Demo</strong
+            ><small id="mode-help">Rules and templates · no AI calls</small>
+          </div>
+        </div>
+        <div class="desk-layout">
+          <section class="case-panel panel">
+            <div class="panel-title">
+              <h2>Case queue</h2>
+              <span class="count">20</span>
+            </div>
+            <label class="search"
+              ><span>⌕</span
+              ><input
+                id="search"
+                placeholder="Find a parcel or case"
+                type="search"
+                aria-label="Find a parcel or case"
+            /></label>
+            <div class="queue-label">
+              <span>FLAGGED FOR REVIEW</span><span>↓</span>
+            </div>
+            <div id="case-list" class="case-list"></div>
+            <div class="queue-footer">
+              <span class="live-dot"></span> Demonstration records only
+            </div>
+          </section>
+          <div class="investigation-column">
+            <section class="case-overview panel">
+              <div class="case-heading">
+                <div>
+                  <p class="eyebrow" id="case-id">CASE C01</p>
+                  <h2 id="parcel-title">
+                    Parcel P104 <span class="status-tag">Missing alert</span>
+                  </h2>
+                </div>
+                <span class="parcel-icon">▧</span>
+              </div>
+              <p id="case-report" class="case-report"></p>
+              <div class="case-meta">
+                <span>⌖ <span>Navi Mumbai · Demo hub</span></span
+                ><span>◷ Morning shift</span><span id="clue-count"></span>
+              </div>
+              <div class="action-bar">
+                <div class="action-note">
+                  <span class="orange-dot"></span
+                  ><span id="action-note">Ready to follow the evidence</span>
+                </div>
+                <button id="run" class="button primary">
+                  Investigate parcel <span>↗</span>
+                </button>
+              </div>
+            </section>
+            <section
+              id="result"
+              class="result-panel panel"
+              hidden
+              aria-live="polite"
+            ></section>
+            <div
+              class="detail-tabs"
+              role="tablist"
+              aria-label="Investigation details"
+            >
+              <button
+                class="detail-tab active"
+                role="tab"
+                aria-selected="true"
+                data-tab="timeline"
+              >
+                Evidence timeline <span id="timeline-count">0</span></button
+              ><button
+                class="detail-tab"
+                role="tab"
+                aria-selected="false"
+                data-tab="trace"
+              >
+                Decision trace</button
+              ><button
+                class="detail-tab"
+                role="tab"
+                aria-selected="false"
+                data-tab="clues"
+              >
+                Change a clue <span>↻</span>
+              </button>
+            </div>
+            <section id="timeline" class="detail-view panel">
+              <div class="empty-state">
+                <div class="empty-icon">⌕</div>
+                <h3>Start with a question.</h3>
+                <p>
+                  Run the investigation to collect scanner events, dispatch
+                  records and handover notes.
+                </p>
+                <div class="source-pills">
+                  <span>Scanner events</span><span>Bag manifests</span
+                  ><span>Shift notes</span>
+                </div>
+              </div>
+            </section>
+            <section id="trace" class="detail-view panel" hidden>
+              <div class="empty-state">
+                <h3>The decisions will appear here.</h3>
+                <p>
+                  Each step records who selected the tool and which records it
+                  returned.
+                </p>
+              </div>
+            </section>
+            <section id="clues" class="detail-view panel" hidden>
+              <div class="editor-header">
+                <div>
+                  <h3>What if one clue changes?</h3>
+                  <p>
+                    Edit a record, then rerun this case. Original fixtures stay
+                    intact.
+                  </p>
+                </div>
+                <span class="experimental">SANDBOX</span>
+              </div>
+              <label class="field-label" for="source-select"
+                >Evidence source</label
+              ><select id="source-select">
+                <option value="dispatch_records">Dispatch records</option>
+                <option value="scan_history">Scan history</option>
+                <option value="handover_notes">
+                  Shift handover notes
+                </option></select
+              ><label class="field-label" for="clue-editor"
+                >Records · JSON</label
+              ><textarea
+                id="clue-editor"
+                spellcheck="false"
+                rows="14"
+              ></textarea>
+              <div class="editor-actions">
+                <button id="remove-record" class="button secondary">
+                  Remove last record</button
+                ><button id="reset-clues" class="button text-button">
+                  Restore original</button
+                ><button id="rerun" class="button primary">
+                  Apply & investigate ↗
+                </button>
+              </div>
+              <p id="edit-error" class="inline-error" role="alert"></p>
+            </section>
+          </div>
+        </div>
+      </section>
+      <section id="evaluation" class="view" hidden>
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">MEASURE WHAT HAPPENS</p>
+            <h1>Evaluation lab.</h1>
+            <p class="subtitle">
+              Twenty distinct cases. Recorded results. Visible failures.
+            </p>
+          </div>
+          <button id="run-evaluation" class="button primary">
+            Run 20 cases ↗
+          </button>
+        </div>
+        <div class="info-strip">
+          Development fixtures measure outcome, recommended location and
+          escalation correctness. Demo scores test the rules; they are not AI
+          model accuracy.
+        </div>
+        <div id="evaluation-output" class="panel evaluation-empty">
+          <span class="lab-icon">▥</span>
+          <h2>Ready for the first run.</h2>
+          <p>
+            Measure accuracy, response time and tool calls using the current
+            server mode.
+          </p>
+        </div>
+      </section>
+      <section id="guide" class="view" hidden>
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">SMALL DECISIONS. VISIBLE EVIDENCE.</p>
+            <h1>Meet your investigation desk.</h1>
+            <p class="subtitle">
+              A useful next step, with the records to back it up.
+            </p>
+          </div>
+        </div>
+        <div class="guide-grid">
+          <article class="panel guide-card">
+            <span>01</span>
+            <h2>Choose the next source</h2>
+            <p>
+              In AWS mode, Strands Decider 2B chooses which evidence source to
+              inspect next. Its input includes the case report and the records
+              collected so far.
+            </p>
+          </article>
+          <article class="panel guide-card">
+            <span>02</span>
+            <h2>Keep the trail</h2>
+            <p>
+              Tools read fictional scan history, dispatch records and shift
+              notes. Every retrieved record has an ID and a timestamp. The host
+              requires all three sources in this first version.
+            </p>
+          </article>
+          <article class="panel guide-card">
+            <span>03</span>
+            <h2>Explain with evidence</h2>
+            <p>
+              Conservative rules establish a provisional finding. Amazon Bedrock
+              explains it with record IDs. IDs are checked; workers still review
+              the wording and the parcel location.
+            </p>
+          </article>
+          <article class="panel guide-card">
+            <span>04</span>
+            <h2>Ask for a physical check</h2>
+            <p>
+              Missing or conflicting evidence produces a check request for the
+              worker. The app never claims to have physically found a parcel or
+              silently closes a case.
+            </p>
+          </article>
+        </div>
+        <div class="panel project-note">
+          <h2>Built for the Strands Decider hackathon</h2>
+          <p>
+            Fictional warehouse data · Reusable tool-selection pattern · AWS
+            deployment prepared, pending account verification
+          </p>
+          <div class="source-pills">
+            <span>#strands-decider-2b</span><span>#tool-selection</span>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <span>PARCEL DETECTIVE <b>v0.1.1</b></span
+        ><span>An evidence-first warehouse experiment.</span>
+      </footer>
+    </main>
+  </body>
+</html>
