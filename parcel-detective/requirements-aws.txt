@@ -1,0 +1,2 @@
+# Local demo requires only Python 3.10+. Install this file for live Bedrock calls.
+boto3>=1.40,<2

@@ -1,0 +1,52 @@
+{
+  "scope": "Local demo only; warm process; no AWS model calls or browser timing.",
+  "method": "Same host and Python, same 20 fixtures, seven sequential rounds of 1000 investigations for each version; medians of round means. Before and after ran sequentially, not interleaved.",
+  "before": {
+    "scope": "Local demo only; warm process; no AWS model calls or browser timing.",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "rounds": 7,
+    "investigations_per_round": 1000,
+    "round_mean_ms": [
+      0.24045769800022754,
+      0.2115888180001093,
+      0.2292827109999962,
+      0.23010395499977676,
+      0.23182358900021427,
+      0.2218261870002607,
+      0.2330638660000659
+    ],
+    "median_round_mean_ms": 0.23010395499977676,
+    "cold_twenty_cases": {
+      "json_parses": 20,
+      "evidence_assessments": 100
+    }
+  },
+  "after": {
+    "scope": "Local demo only; warm process; no AWS model calls or browser timing.",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "rounds": 7,
+    "investigations_per_round": 1000,
+    "round_mean_ms": [
+      0.0660878139997294,
+      0.06418167099991479,
+      0.0631912150001881,
+      0.06800928600023326,
+      0.06411706400012918,
+      0.07803065300004164,
+      0.06548951200011288
+    ],
+    "median_round_mean_ms": 0.06548951200011288,
+    "cold_twenty_cases": {
+      "json_parses": 1,
+      "evidence_assessments": 20
+    }
+  },
+  "local_compute_reduction_percent": 71.5,
+  "not_measured": [
+    "browser rendering or page load",
+    "live Decider or Bedrock latency",
+    "AWS cost"
+  ]
+}

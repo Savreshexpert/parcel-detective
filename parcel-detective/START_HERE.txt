@@ -1,0 +1,70 @@
+PARCEL DETECTIVE - START HERE
+
+1. Right-click the ZIP and choose Extract All.
+2. Open the extracted parcel-detective folder.
+3. Double-click START_WINDOWS.bat.
+4. Keep the black terminal window open.
+5. Open http://127.0.0.1:8080 in Chrome or Edge.
+
+TO RUN IN VS CODE
+
+Open VS Code -> File -> Open Folder -> choose parcel-detective.
+Open Terminal -> New Terminal and run:
+
+    python app.py
+
+If Windows cannot find python, use:
+
+    py app.py
+
+Open http://127.0.0.1:8080 in your browser.
+Press Ctrl+C in the terminal when you want to stop the app.
+
+The local demo uses Python's built-in tools. No pip install is needed.
+Python 3.10 or newer is required. Your Python 3.14 installation can run
+this local demo. The AWS installer uses a separate Python 3.12 environment.
+
+Do not open web/index.html directly or run python -m http.server.
+The dashboard needs the Python API started by app.py.
+If you still see the earlier basic page, use port 8080, not port 8000.
+
+TRY THE PROJECT
+
+- Choose P104 and click Investigate parcel: suspected missed scan.
+- Choose P105: suspected wrong dispatch bag.
+- Choose P106: incomplete records and a physical-check request.
+- Select P104 again and investigate it. Open Change a clue, choose
+  Dispatch records, click Remove last record, then Apply & investigate.
+  The finding changes because the loading evidence is gone.
+- Click Restore original to reset the clues.
+- Open Evaluation lab and click Run 20 cases to see measured results.
+
+RUN THE AUTOMATED CHECKS
+
+    python -m unittest discover -s tests -v
+    python -m parcel_detective.evaluate --mode demo
+
+IF THE PORT IS ALREADY IN USE
+
+Stop your other Parcel Detective terminal with Ctrl+C, or run:
+
+    python app.py --port 8081
+
+Then open http://127.0.0.1:8081.
+
+AWS AND SUBMISSION
+
+This ZIP contains the source code, fictional records, tests, AWS
+deployment files, reusable Decider pattern, article draft and video script.
+Model weights are downloaded separately during AWS installation.
+
+Local demo mode uses rules and templates. It does not call AI models.
+The real Strands Decider 2B and Amazon Bedrock adapters are included,
+but they still need to be deployed and verified in your AWS account.
+Read docs/AWS_SETUP.md for those steps and costs.
+
+The public repository, Builder Center article and public video still
+need to be published. They are not created by extracting this ZIP.
+Read docs/HACKATHON_REVIEW.md for the requirement check and
+docs/PERFORMANCE_REVIEW.md for the measured code improvements.
+Read README.md and PROJECT_STATUS.md for the full project status.

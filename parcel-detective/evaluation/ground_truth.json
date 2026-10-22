@@ -1,0 +1,196 @@
+[
+  {
+    "case_id": "C01",
+    "scenario": "missed",
+    "outcome": "missed_scan",
+    "physical_check_required": false,
+    "location_contains": [
+      "B-104",
+      "Dock 3"
+    ]
+  },
+  {
+    "case_id": "C02",
+    "scenario": "wrong",
+    "outcome": "wrong_dispatch_bag",
+    "physical_check_required": false,
+    "location_contains": [
+      "B-305",
+      "Dock 3"
+    ]
+  },
+  {
+    "case_id": "C03",
+    "scenario": "incomplete_no_dispatch",
+    "outcome": "incomplete_records",
+    "physical_check_required": true,
+    "location_contains": [
+      "Lane 3"
+    ]
+  },
+  {
+    "case_id": "C04",
+    "scenario": "missed_no_note",
+    "outcome": "missed_scan",
+    "physical_check_required": false,
+    "location_contains": [
+      "B-107",
+      "Dock 3"
+    ]
+  },
+  {
+    "case_id": "C05",
+    "scenario": "missed_unverified",
+    "outcome": "missed_scan",
+    "physical_check_required": false,
+    "location_contains": [
+      "B-108",
+      "Dock 3"
+    ]
+  },
+  {
+    "case_id": "C06",
+    "scenario": "missed_old_return",
+    "outcome": "missed_scan",
+    "physical_check_required": false,
+    "location_contains": [
+      "B-109",
+      "Dock 3"
+    ]
+  },
+  {
+    "case_id": "C07",
+    "scenario": "missed_old_cancel",
+    "outcome": "missed_scan",
+    "physical_check_required": false,
+    "location_contains": [
+      "B-110",
+      "Dock 3"
+    ]
+  },
+  {
+    "case_id": "C08",
+    "scenario": "missed_blank_note",
+    "outcome": "missed_scan",
+    "physical_check_required": false,
+    "location_contains": [
+      "B-111",
+      "Dock 3"
+    ]
+  },
+  {
+    "case_id": "C09",
+    "scenario": "missed_injection",
+    "outcome": "missed_scan",
+    "physical_check_required": false,
+    "location_contains": [
+      "B-112",
+      "Dock 3"
+    ]
+  },
+  {
+    "case_id": "C10",
+    "scenario": "wrong_no_note",
+    "outcome": "wrong_dispatch_bag",
+    "physical_check_required": false,
+    "location_contains": [
+      "B-313",
+      "Dock 3"
+    ]
+  },
+  {
+    "case_id": "C11",
+    "scenario": "wrong_sort_bag",
+    "outcome": "wrong_dispatch_bag",
+    "physical_check_required": false,
+    "location_contains": [
+      "B-314",
+      "Dock 3"
+    ]
+  },
+  {
+    "case_id": "C12",
+    "scenario": "wrong_old_manifest",
+    "outcome": "wrong_dispatch_bag",
+    "physical_check_required": false,
+    "location_contains": [
+      "B-315",
+      "Dock 3"
+    ]
+  },
+  {
+    "case_id": "C13",
+    "scenario": "wrong_unverified_note",
+    "outcome": "wrong_dispatch_bag",
+    "physical_check_required": false,
+    "location_contains": [
+      "B-316",
+      "Dock 3"
+    ]
+  },
+  {
+    "case_id": "C14",
+    "scenario": "wrong_dispatch_scan",
+    "outcome": "wrong_dispatch_bag",
+    "physical_check_required": false,
+    "location_contains": [
+      "B-317",
+      "Dock 3"
+    ]
+  },
+  {
+    "case_id": "C15",
+    "scenario": "wrong_reordered",
+    "outcome": "wrong_dispatch_bag",
+    "physical_check_required": false,
+    "location_contains": [
+      "B-318",
+      "Dock 3"
+    ]
+  },
+  {
+    "case_id": "C16",
+    "scenario": "incomplete_cancelled",
+    "outcome": "incomplete_records",
+    "physical_check_required": true,
+    "location_contains": [
+      "Lane 4"
+    ]
+  },
+  {
+    "case_id": "C17",
+    "scenario": "incomplete_conflict",
+    "outcome": "incomplete_records",
+    "physical_check_required": true,
+    "location_contains": [
+      "Hold shelf H2"
+    ]
+  },
+  {
+    "case_id": "C18",
+    "scenario": "incomplete_empty",
+    "outcome": "incomplete_records",
+    "physical_check_required": true,
+    "location_contains": [
+      "last receiving area"
+    ]
+  },
+  {
+    "case_id": "C19",
+    "scenario": "incomplete_route",
+    "outcome": "incomplete_records",
+    "physical_check_required": true,
+    "location_contains": [
+      "Lane 3"
+    ]
+  },
+  {
+    "case_id": "C20",
+    "scenario": "incomplete_duplicate_bags",
+    "outcome": "incomplete_records",
+    "physical_check_required": true,
+    "location_contains": [
+      "Lane 4"
+    ]
+  }
+]
